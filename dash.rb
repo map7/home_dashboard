@@ -5,16 +5,16 @@ require 'byebug'
 url = 'https://api.thingspeak.com/channels/1097373/feeds/last.json'
 uri = URI(url)
 
-Shoes.app width: 720, height: 480 do
+Shoes.app width: 800, height: 400 do
   background "#000"
   @clock = para "00:00"
-  @clock.style(:stroke => red, :font => "130")
+  @clock.style(:stroke => red, :font => "190")
 
   @temperature = para "00C "
-  @temperature.style(:stroke => red, :font => "40")
+  @temperature.style(:stroke => red, :font => "70")
 
   @humidity = para "00%"
-  @humidity.style(:stroke => red, :font => "40")
+  @humidity.style(:stroke => red, :font => "70")
 
   every 1 do 
     @clock.text = Time.now.strftime("%H:%M")
