@@ -1,3 +1,10 @@
+require 'net/http'
+require 'json'
+require 'byebug'
+
+url = 'https://api.thingspeak.com/channels/1097373/feeds/last.json'
+uri = URI(url)
+
 Shoes.app width: 720, height: 480 do
   background "#000"
   @clock = para "00:00"
@@ -11,7 +18,12 @@ Shoes.app width: 720, height: 480 do
 
   every 1 do 
     @clock.text = Time.now.strftime("%H:%M")
-    
+
+    # Update Temperature & Humidity
+    response = Net::HTTP.get(uri)
+    response = JSON.parse(response)
+    @temperature.text = response["field1"] + "C " 
+    @humidity.text = response["field2"] + "%"
   end
  end
  
