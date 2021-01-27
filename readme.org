@@ -1,3 +1,15 @@
 * Home Dashboard
 
 This will be a clock and basic readout of the weather station outside.
+
+** Run
+
+1. Download shoes
+   http://shoesrb.com/
+
+2. Install
+   : chmod +x shoes-3.3.7-gtk3-x86_64.install
+   : ./shoes-3.3.7-gtk3-x86_64.install
+
+3. Run
+   : ~/.shoes/walkabout/shoes dash.rb
