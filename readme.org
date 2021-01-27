@@ -1,0 +1,3 @@
+* Home Dashboard
+
+This will be a clock and basic readout of the weather station outside.
