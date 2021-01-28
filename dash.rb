@@ -8,7 +8,7 @@ uri = URI(url)
 Shoes.app width: 800, height: 400 do
   background "#000"
   @clock = para "00:00"
-  @clock.style(:stroke => red, :font => "190")
+  @clock.style(:stroke => red, :font => "200")
 
   @temperature = para "00C "
   @temperature.style(:stroke => red, :font => "70")
