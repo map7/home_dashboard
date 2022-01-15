@@ -4,12 +4,13 @@ This will be a clock and basic readout of the weather station outside.
 
 ** Run
 
-1. Download shoes
+1. Download shoes / copy from backup
    http://shoesrb.com/
+   On notebook ~/hacking/carpi/scripts/shoes-3.3.7-gtk3-armhf.install
 
 2. Install
    : chmod +x shoes-3.3.7-gtk3-x86_64.install
    : ./shoes-3.3.7-gtk3-x86_64.install
 
 3. Run
-   : ~/.shoes/walkabout/shoes dash.rb
+   : ~/.shoes/walkabout/shoes /home/pi/code/home_dashboard/dash.rb

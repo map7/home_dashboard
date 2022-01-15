@@ -18,12 +18,25 @@ Shoes.app fullscreen: true, width: 800, height: 400 do
 
   every 1 do 
     @clock.text = Time.now.strftime("%H:%M")
+	puts @clock.text
 
     # Update Temperature & Humidity
-    response = Net::HTTP.get(uri)
-    response = JSON.parse(response)
-    @temperature.text = response["field1"].to_i.to_s.rjust(2,"0") + "C " 
-    @humidity.text = response["field2"] + "%"
+    begin
+	Timeout.timeout(5) do
+	  response = Net::HTTP.get(uri)
+    	  response = JSON.parse(response)
+    	  @temperature.text = response["field1"].to_i.to_s.rjust(2,"0") + "C " 
+    	  @humidity.text = response["field2"] + "% " + Time.now.strftime("%S")
+    end
+    rescue TimeoutError
+	puts 'timed out'
+    end
+
+    #response = Net::HTTP.get(uri)
+    #response = JSON.parse(response)
+    #@temperature.text = response["field1"].to_i.to_s.rjust(2,"0") + "C " 
+    #@humidity.text = response["field2"] + "% " + Time.now.strftime("%S")
+    
   end
  end
  
